@@ -2,20 +2,27 @@
 
 ## Índice
 
-- [Como inicializar e aplicar as configurações do Terraform](#como-inicializar-e-aplicar-as-configuracoes-do-terraform)
+- [Como inicializar e aplicar as configurações do Terraform no Windows](#como-inicializar-e-aplicar-as-configuracoes-do-terraform-no-windows)
 - [Terraform arquivo original](#terraform-arquivo-original)
 - [Terraform arquivo modificado](#terraform-arquivo-modificado)
 
-## Como inicializar e aplicar as configurações do Terraform:
+## Como inicializar e aplicar as configurações do Terraform no Windows:
 
-- Abra seu terminal
+Pré-requisitos:
+- Ter uma conta AWS
+- Ter um usuário na conta da AWS (caso tenha algum problema com as permissões do usuário na hora de rodar a aplicação, basta dar a permissão "AmazonEC2FullAccess" ao usuário)
+- Ter a AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY de seu usuário
+- Instalar o Terraform e AWS CLI como mostra o passo a passo
+
+Passo a passo:
+- Abra seu terminal CMD
 - Instalar Terraform ([Link para baixar Terraform](https://developer.hashicorp.com/terraform/install))
 - Instalar AWS CLI ([Link para instalar AWS CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html))
 - Configure as variáveis de ambiente: AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY do IAM AWS
-- Criar uma pasta no diretório com → mkdir <nome da pasta>
-- Acessar diretório criado com cd <nome da pasta>
+- Criar uma pasta no diretório com → mkdir nome_da_pasta
+- Acessar diretório criado com → cd nome_da_pasta
 - Criar arquivo main.tf → echo. > main.tf
-- Abra o notepad, cole o conteúdo e salve → notepad main.tf
+- Use o comando para abrir o notepad, cole o conteúdo do script e salve → notepad main.tf
 - Usar comando inicializar → terraform init
 - Usar comando para verificar formatação → terraform fmt
 - Usar comando para validação sintática → terraform validate
@@ -30,6 +37,20 @@ A instância EC2 está exposta na porta 22, qualquer IP pode tentar uma conexão
 Para que a instância continue acessando a internet para baixar atualizações ou outros pacotes, poderíamos conectá-la a um NAT Gateway de uma subnet pública.
 
 Também poderíamos passar a salvar a chave SSH localmente para que o output do Terraform não seja a única forma de consultar a chave. 
+
+### Erros encontrados
+
+1. **Erro na tag do recurso aws_route_table_association**
+   
+   Solução: Não usar tag neste recurso.
+   
+3. **Erro na descrição do ressarce aws_security_group**
+   
+   Solução:  Remover caracteres com acento.
+    
+6. **Erro: não encontrava o Security Group ao tentar associa-lo ao EC2**
+   
+   Solução: Mapear o SG por ID ao invés de nome.
 
 ### Rascunho do funcionamento original
 <details>
@@ -179,6 +200,7 @@ Também poderíamos passar a salvar a chave SSH localmente para que o output do 
      ```
         
 9. **Associar a subnet criada a route table, tornando-a pública.**
+    
     a. A associação é feita através do subnet_id e route_table_id
     
     ```
