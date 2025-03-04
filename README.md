@@ -315,6 +315,8 @@ output "ec2_public_ip" {
 
 # Terraform Modificado
 
+[Baixar o arquivo main.tf](./main.tf)
+
 ## Objetivo
 
 As modificações visaram colocar a instância em uma subnet privada afim de diminuir a exposição pública. O acesso passa a ser somente através do load balancer. Além de maior segurança, proporciona mais potencial de escala horizontal. 
