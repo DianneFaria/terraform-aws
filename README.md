@@ -2,11 +2,11 @@
 
 ## Índice
 
-- [Como inicializar e aplicar as configurações do Terraform no Windows](#como-inicializar-e-aplicar-as-configuracoes-do-terraform-no-windows)
+- [Configurar o Terraform no Windows](#configurar-o-terraform-no-windows)
 - [Terraform arquivo original](#terraform-arquivo-original)
 - [Terraform arquivo modificado](#terraform-arquivo-modificado)
 
-## Como inicializar e aplicar as configurações do Terraform no Windows:
+## Configurar o Terraform no Windows
 
 Pré-requisitos:
 - Ter uma conta AWS
