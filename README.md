@@ -1,5 +1,11 @@
 # VExpenses
 
+## Índice
+
+- [Como inicializar e aplicar as configurações do Terraform](#como-inicializar-e-aplicar-as-configuracoes-do-terraform)
+- [Terraform arquivo original](#terraform-arquivo-original)
+- [Terraform arquivo modificado](#terraform-arquivo-modificado)
+
 ## Como inicializar e aplicar as configurações do Terraform:
 
 - Abra seu terminal
@@ -15,7 +21,7 @@
 - Usar comando para validação sintática → terraform validate
 - Usar comando para criar → terraform apply
 
-# Terraform original
+# Terraform arquivo original
 
 ### Sugestões de melhoria
 
@@ -313,9 +319,9 @@ output "ec2_public_ip" {
 }
 ```
 
-# Terraform Modificado
+# Terraform arquivo modificado
 
-[Baixar o arquivo main.tf](./main.tf)
+[Baixar o arquivo main.tf modificado](./main.tf)
 
 ## Objetivo
 
